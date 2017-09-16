@@ -24,6 +24,10 @@ function bindActionCreator(actionCreator, dispatch) {
  * function.
  */
 export default function bindActionCreators(actionCreators, dispatch) {
+  if (dispatch === undefined) {
+    return (dispatch) => bindActionCreators(actionCreators, dispatch);
+  }
+
   if (typeof actionCreators === 'function') {
     return bindActionCreator(actionCreators, dispatch)
   }

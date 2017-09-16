@@ -16,7 +16,8 @@ For convenience, you can also pass a single function as the first argument, and 
 
 #### Returns
 
-(*Function* or *Object*): An object mimicking the original object, but with each function immediately dispatching the action returned by the corresponding action creator. If you passed a function as `actionCreators`, the return value will also be a single function.
+(*Function* or *Object*): An object mimicking the original object, but with each function immediately dispatching the action returned by the corresponding action creator. If you passed a function as `actionCreators`, the return value will also be a single function. If you didn't pass in `dispatch`, a function with a single argument for `dispatch` is returned. When that returned function is invoked with `dispatch`, `bindActionCreators` will be invoked with the original `actionCreators` argument. This is useful for setting `mapDispatchToProps` with `connect` from `react-redux`.
+
 
 #### Example
 
